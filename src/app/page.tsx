@@ -1,14 +1,15 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
-import Image from "next/image"
-import styles from "./page.module.css"
-
-import MyAssessments from "../components/MyAssessments.tsx"; 
+import styles from "./page.module.css";
 import Navigation from "../components/Navigation.tsx"; 
+import AssessmentOverview from "../components/AssessmentOverview.tsx"; 
+import MyAssessments from "../components/MyAssessments.tsx";
 
 export default function Home() {
   const [mobileActive, setMobileActive] = useState(false);
+  const [] = useState();
 
   return (
     <main className={styles.main}>
@@ -43,6 +44,7 @@ export default function Home() {
 
 
 		<div className={styles.body}>
+			<AssessmentOverview />
 			<MyAssessments />
 		</div>
     	</div>
