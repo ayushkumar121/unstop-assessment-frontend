@@ -1,0 +1,215 @@
+.container {
+    margin-top: 24px;
+}
+
+.heading {
+    color: #1C4980;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%
+}
+
+.scrollableBox {
+    display: flex;
+    gap: 30px;
+    overflow-y: scroll;
+    align-items: center;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-top: 16px;
+}
+
+.newAssessments {
+    width: 388px;
+    height: 209px;
+    background: rgba(246, 248, 250, 1);
+    border-radius: 12px;
+    border: 1px dashed #DADCE0;
+    padding: 30px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.popupOverlay {
+   position: fixed;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   display: grid;
+   place-items: center;
+   background: rgba(0, 0, 0, .5);
+   opacity: 0;
+   z-index: -2000;
+}
+
+.popupOverlay.active {
+   opacity: 1;
+   z-index: 2000;
+   animation: overlayAnimation 0.5s linear;
+}
+
+@keyframes overlayAnimation {
+  from {opacity: 0; }
+  to {opacity: 1; z-index: 2000}
+}
+
+.newAssessmentPopup {
+   position: fixed;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   display: grid;
+   place-items: center;
+   top: 100%;
+   z-index: 2000;
+   transition: top 0.5s ease-out ;
+}
+
+.newAssessmentPopup.active{
+   top: 0;
+   transition: top 0.5s ease-out ;
+}
+
+.popupHeading {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px dashed #DADCE0;
+}
+
+.popupHeading .popupText {
+    color: #1C4980;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.popupBody {
+    width: 100%;
+    max-width: 500px;
+    height: 600px;
+    background: #fff;
+    border-radius: 12px;
+}
+
+.popupClose{
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    color: rgba(50, 50, 50, 1);
+    display: grid;
+    place-items: center;
+}
+
+.newAssessments .addButton {
+    width: 70px;
+    height: 70px;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    border-radius: 100%;
+}
+
+.newAssessments .title {
+    color: #1C4980;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.newAssessments .description {
+    color: #1C4980;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 20px;
+    height: 450px;
+    overflow-y: scroll;
+}
+
+.form span {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form input, .form select {
+    outline: none;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #DADCE0;
+    background: #fff;
+}
+
+.form label {
+    color: #1C4980;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+@media only screen and (max-width: 600px) {
+    .scrollableBox {
+        flex-direction: column;
+        height: 80vh;
+        gap: 15px;
+        flex-wrap: nowrap;
+        padding-right: 10px;
+        margin-right: 10px;
+    }
+
+    .newAssessments {
+    	width: 100%;
+    	height: 160px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .newAssessments .addButton {
+    	width: 45px;
+    	height: 45px;
+    }
+    
+    .newAssessments .addButtonImg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .newAssessmentPopup {
+    }
+    
+    .popupBody {
+        position: absolute;
+        top: 40%;
+        height: 60%;
+        border-radius: 12px 12px 0px 0px;
+    }
+
+    .popupClose{
+    	background: rgba(251, 235, 234, 1);
+    	border-radius: 100%;
+    	color: rgba(214, 53, 0, 1);
+    }
+}

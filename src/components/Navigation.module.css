@@ -1,0 +1,124 @@
+.container {
+    height: 100vh;
+    width: 140px;
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    background: #fff;
+    padding: 25px;
+    top: 0;
+}
+
+.container div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container div.mobileMenu {
+    justify-content: space-between;
+    flex-direction: row;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: rgba(28, 73, 128, 1);
+    display: none;
+}
+
+.container div:nth-child(2) {
+    border-bottom: 1px dashed rgba(186, 203, 213, 1);
+    padding-bottom: 20px;
+}
+
+.container div:nth-child(3) {
+    padding-top: 20px;
+}
+
+.adminChip {
+    width: 47px;
+    height: 18px;
+    text-align: center;
+    border-radius: 22px;
+    border: 1px solid rgba(214, 53, 0, 1);
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 12px;
+    letter-spacing: 0em;
+    color: rgba(214, 53, 0, 1);
+    place-items: center;
+    display: grid;
+    background: rgba(251, 235, 234, 1);
+}
+
+.button {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 0px;
+    text-align: left;
+    border: none;
+    background: none;
+    outline: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width:  90px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    place-items: center;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: rgba(28, 73, 128, 1);
+    margin-top: 5px;
+}
+
+button.active {
+    border: 1px solid rgba(0, 115, 230, 1);
+    border-radius: 8px;
+    background: rgba(229, 241, 252, 1);
+}
+
+.button.active span {
+    color: rgba(0, 115, 230, 1);
+}
+
+.container div.mobileMenu img {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 315px;
+        position: fixed;
+        background: rgba(229, 241, 252, 1);
+        transition: left 0.5s ease-in;
+        left: -315px;
+    }
+
+    .container.mobileActive{
+        left: 0px;
+       transition: left 0.5s ease-out;
+    }
+
+    .button {
+        width: 275px;
+        height: 50px;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 10px;
+        position: relative;
+    }
+
+    .adminChip {
+       position: absolute;
+       right: 10px;
+    }
+
+    .container div.mobileMenu {
+        display: flex;
+    }
+}

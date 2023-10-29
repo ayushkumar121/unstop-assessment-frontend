@@ -1,0 +1,162 @@
+.card {
+    background: #fff;
+    border: 1px solid rgba(218, 220, 224, 1);
+    border-radius: 12px;
+    width: 388px;
+    height: 209px;
+    padding: 16px;
+    position: relative;
+}
+
+.kababMenu {
+    position: absolute;
+    border: none;
+    background: transparent;
+    outline: none;
+    right: 20px;
+}
+
+.cardHeader {
+    border-bottom: 1px dashed rgba(218, 220, 224, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.cardLogo {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: rgba(235, 232, 253, 1);
+    border-radius: 12px;
+    color: rgba(235, 232, 253, 1);
+    display: grid;
+    place-items: center;
+}
+
+.cardHeaderText {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 16px;
+}
+
+.cardTitle {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 25px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: rgba(28, 73, 128, 1);
+}
+
+.cardSubtitle {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: rgba(28, 73, 128, 1);
+}
+
+.cardSubtitle span {
+    margin-right: 10px;
+    padding-right: 10px;
+}
+
+.cardSubtitle span:nth-child(1) {
+    border-right: 1px solid rgba(218, 220, 224, 1);
+}
+
+.cardSubtitle span:nth-child(2) {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(141, 164, 191, 1);
+}
+
+.cardBottom {
+    padding-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cardStats {
+    display: flex;
+}
+
+.cardStats div {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.cardStats div span {
+    color: rgba(28, 73, 128, 1);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.cardStats div span:nth-child(2) {
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.cardRight {
+   display: flex;
+   gap: 10px;
+}
+
+.shareButton {
+    width: 77px;
+    height: 30px;
+    padding: 2px 8px 2px 6px;
+    border-radius: 50px;
+    background: transparent;
+    border: 1px solid rgba(28, 73, 128, 1);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0px;
+    color: rgba(28, 73, 128, 1);
+    gap: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.applicant {
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    background: rgba(101, 72, 238, 1);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: center;
+    display: grid;
+    place-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+        width: 100%;
+        height: 100;
+    }
+    
+    .cardLogo {
+        margin-right: 10px;
+    }
+    
+    .cardHeader {
+        flex-direction: row;
+        align-items: center;
+    }
+}
