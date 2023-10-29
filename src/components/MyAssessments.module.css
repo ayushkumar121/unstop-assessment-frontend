@@ -1,5 +1,6 @@
 .container {
-    margin-top: 24px;
+    padding-top: 24px;
+    padding-bottom: 24px;
 }
 
 .heading {
@@ -101,6 +102,7 @@
     height: 600px;
     background: #fff;
     border-radius: 12px;
+    border: 1px solid #DADCE0;
 }
 
 .popupClose{
@@ -162,12 +164,75 @@
     background: #fff;
 }
 
+.form .skillInput {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form .skills {
+    display: flex;
+    gap: 10px;
+    min-height: 50px;
+    flex-wrap: wrap;
+    width: 100%;
+    border: 1px solid #DADCE0;
+    padding: 16px;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.form .skillInput input {
+    border-radius: 0px 0px 8px 8px;
+}
+
+.form .skills .skill {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+    padding: 6px 8px 6px 10px;
+    background: rgba(221, 237, 255, 1);
+    color: #1C4980;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border-radius: 22px;
+}
+
 .form label {
     color: #1C4980;
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+
+.popupBottom {
+    width: 100%;
+    display: grid; 
+    place-items: center;
+    padding: 20px 30px;
+    box-shadow: 0px -4px 50px 0px rgba(0, 0, 0, 0.09);
+}
+
+.popupBottom button {
+    display: grid; 
+    place-items: center;
+    height: 40px;
+    width: 100%;
+    padding: 10px 30px;
+    background: rgba(0, 115, 230, 1);
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.popupClose img {
+    filter: contrast(0.5);
 }
 
 @media only screen and (max-width: 600px) {
@@ -210,6 +275,9 @@
     .popupClose{
     	background: rgba(251, 235, 234, 1);
     	border-radius: 100%;
-    	color: rgba(214, 53, 0, 1);
+    }
+
+    .popupClose img {
+    	filter: hue-rotate(120deg);
     }
 }

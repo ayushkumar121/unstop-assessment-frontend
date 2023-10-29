@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 import styles from "./MyAssessments.module.css";
@@ -15,6 +15,38 @@ export default function MyAssessments() {
    const [assessments, setAssessments] = useState(defaultAssessments);
    const [popupOpened, setPopupOpened] = useState(false);
 
+   const [skill, setSkill] = useState("");
+   const [skills, setSkills] = useState<string[]>([]);
+   const [name, setName] = useState("");
+   const [purpose, setPurpose] = useState("Job");
+   const [duration, setDuration] = useState(1);
+
+   function handleSkillEvent(e: React.KeyboardEvent<HTMLInputElement>) {
+       if (e.key == "Enter") {
+           (e.target as HTMLInputElement).value="";
+           setSkills([skill, ...skills]);
+           setSkill("");
+       } else if (e.key.length != 1) {
+       } else if (e.key >= 'a' && e.key <= 'z' || e.key >= "A" && e.key <= "Z") {
+           setSkill(skill+e.key);
+       } 
+   }
+
+   function removeSkill(skill: string) {
+       setSkills(skills.filter(s => s!=skill));
+   }
+
+   function postAssessment() {
+       let newAssessment = {
+           name: name,
+           purpose: purpose,
+           duration: duration,
+           question: 1,
+       };
+
+       setAssessments([newAssessment, ...assessments]);
+   }
+   
    return (
        <>
        <div className={styles.container}>
@@ -72,15 +104,20 @@ export default function MyAssessments() {
 			<div className={styles.form}>
 				<span>
 					<label>Name of assessment</label>
-					<input type="text" placeholder="Type Here" />
+					<input 
+						type="text" 
+						placeholder="Type Here"
+						onChange={(e) => setName(e.target.value)}
+					/>
 				</span>
 
 				<span>
 					<label>Purpose of the test is </label>
-					<select>
-						<option>Select</option>
-						<option>Job</option>
-						<option>Contest</option>
+					<select
+						onChange={(e) => setPurpose(e.target.value)}
+					>
+						<option value="Job">Job</option>
+						<option value="Contest">Contest</option>
 					</select>
 				</span>
 				
@@ -91,20 +128,42 @@ export default function MyAssessments() {
 
 				<span>
 					<label>Skills</label>
-					<input type="text" placeholder="Type Here" />
+					<div className={styles.skillInput}>
+						<div className={styles.skills}>
+							{skills.map((skill,i) => (
+    								<span key={i} className={styles.skill}>
+    									<span>{skill}</span>
+				      					<Image
+				      						onClick={() => removeSkill(skill)}
+										src="/cut.svg"
+										alt="close"
+										width={18}
+										height={18}
+      									/>
+    								</span>
+							))}
+						</div>
+						<input 
+							type="text" 
+							placeholder="Type Here"
+							onKeyDown={handleSkillEvent}
+						/>
+					</div>
 				</span>
 				
 				<span>
 					<label>Duration</label>	
-					<select>
-						<option>1 hour</option>
-						<option>2 hour</option>
-						<option>3 hour</option>
+					<select
+						onChange={(e) => setDuration(parseInt(e.target.value))}
+					>
+						<option value="1">1 hour</option>
+						<option value="2">2 hour</option>
+						<option value="3">3 hour</option>
 					</select>
 				</span>
 			</div>
-			<div>
-    				<button></button>
+			<div className={styles.popupBottom}>
+    				<button onClick={postAssessment}>Save</button>
 			</div>
 		</div>
 	</div>
